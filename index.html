@@ -171,6 +171,16 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
 
 /* motion */
 @media (prefers-reduced-motion:no-preference){
+  @keyframes rise-in{
+    from{opacity:0;transform:translateY(18px)}
+    to{opacity:1;transform:none}
+  }
+  .hero .badge{animation:rise-in .4s var(--ease) both}
+  .hero h1{animation:rise-in .4s var(--ease) .08s both}
+  .hero .lede{animation:rise-in .4s var(--ease) .16s both}
+  .hero .facts{animation:rise-in .4s var(--ease) .24s both}
+  .hero .hero-cta{animation:rise-in .4s var(--ease) .32s both}
+  .hero-figure{animation:rise-in .5s var(--ease) .2s both}
   .reveal{opacity:0;transform:translateY(16px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
   .reveal.in{opacity:1;transform:none}
 }
@@ -241,15 +251,15 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
 
 <section class="section-soft" id="audience">
   <div class="container">
-    <span class="kicker">למי הקורס מיועד</span>
-    <h2>למי שכבר מנחים, ורוצים להבין מה בעצם קורה שם</h2>
+    <span class="kicker reveal">למי הקורס מיועד</span>
+    <h2 class="reveal">למי שכבר מנחים, ורוצים להבין מה בעצם קורה שם</h2>
     <div class="audience-grid">
-      <div class="audience-text">
+      <div class="audience-text reveal">
         <p>רבות ורבים מאיתנו מנחים קבוצות באינטואיציה טובה: מרגישים את החדר, מגיבים נכון, מזיזים דברים. אבל מעטים עצרו פעם להמשיג את מה שהם עושים, ולהתבונן באופן מקצועי בתהליכים שהקבוצה עוברת.</p>
         <p>הקורס נותן שפה מקצועית לעבודה שאתם כבר עושים: <strong>מושגים מעולם ההנחיה הקבוצתית, כלים מעשיים לחדר, ומבט חדש על הדינמיקה שמתרחשת מתחת לפני השטח.</strong></p>
         <p>הלמידה חווייתית ותאורטית גם יחד. נהיה בעצמנו קבוצת לומדות ולומדים, נתנסה בתהליך קבוצתי מלא, ונלמד ממנו ממקור ראשון.</p>
       </div>
-      <div class="audience-card">
+      <div class="audience-card reveal">
         <p>הקבוצה עצמה היא חומר הלימוד: מה שנקרה בחדר בינינו הוא מה שנלמד להנחות אצלכם.</p>
         <span>מיועד למנחות ולמנחים של קבוצות בפועל</span>
       </div>
@@ -259,9 +269,9 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
 
 <section id="topics">
   <div class="container">
-    <span class="kicker">מה לומדים</span>
-    <h2>הנושאים שנפגוש בדרך</h2>
-    <p class="section-lede">כל מפגש מחבר מושג תאורטי אחד לתרגול חי בקבוצה.</p>
+    <span class="kicker reveal">מה לומדים</span>
+    <h2 class="reveal">הנושאים שנפגוש בדרך</h2>
+    <p class="section-lede reveal">כל מפגש מחבר מושג תאורטי אחד לתרגול חי בקבוצה.</p>
     <div class="topics-grid">
       <div class="topic-card reveal">
         <div class="topic-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0048FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h4v-6h4v-4h4V6h4"/></svg></div>
@@ -294,15 +304,15 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
         <p>שתיקה, איחורים, ציניות: על מה ההתנגדות מגינה, ואיך הופכים אותה לשיח מעמיק.</p>
       </div>
     </div>
-    <p class="topics-more">ועוד: סטינג וחוזה קבוצתי, תוכן מול תהליך, הנחיה זוגית ותהליכי פרידה.</p>
+    <p class="topics-more reveal">ועוד: סטינג וחוזה קבוצתי, תוכן מול תהליך, הנחיה זוגית ותהליכי פרידה.</p>
   </div>
 </section>
 
 <section class="section-soft" id="schedule">
   <div class="container">
-    <span class="kicker">מתי נפגשים</span>
-    <h2>שמונה מפגשי בוקר לאורך השנה</h2>
-    <p class="section-lede">ימי חמישי, 9:00 עד 13:00.</p>
+    <span class="kicker reveal">מתי נפגשים</span>
+    <h2 class="reveal">שמונה מפגשי בוקר לאורך השנה</h2>
+    <p class="section-lede reveal">ימי חמישי, 9:00 עד 13:00.</p>
     <div class="schedule-wrap">
       <div class="date-card reveal"><div class="num">מפגש 1</div><div class="date">29.10</div><div class="note">יום חמישי</div></div>
       <div class="date-card reveal"><div class="num">מפגש 2</div><div class="date">19.11</div><div class="note">יום חמישי</div></div>
@@ -313,7 +323,7 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
       <div class="date-card reveal"><div class="num">מפגש 7</div><div class="date">18.3</div><div class="note">יום חמישי</div></div>
       <div class="date-card reveal"><div class="num">מפגש 8</div><div class="date">8.4</div><div class="note">יום חמישי</div></div>
     </div>
-    <p class="schedule-note">
+    <p class="schedule-note reveal">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0048FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
       ההשתתפות היא בכל שמונת המפגשים: הקבוצה נבנית יחד, מהמפגש הראשון ועד האחרון.
     </p>
@@ -324,11 +334,11 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
   <div class="container">
     <div class="signup-grid">
       <div>
-        <span class="kicker">הרשמה</span>
-        <h2>רוצים להצטרף?</h2>
-        <p class="section-lede">מספר המקומות מוגבל, כדי שהקבוצה תוכל להיות קבוצה. שמרו את התאריכים ביומן, וההרשמה כבר בדרך.</p>
+        <span class="kicker reveal">הרשמה</span>
+        <h2 class="reveal">רוצים להצטרף?</h2>
+        <p class="section-lede reveal">מספר המקומות מוגבל, כדי שהקבוצה תוכל להיות קבוצה. שמרו את התאריכים ביומן, וההרשמה כבר בדרך.</p>
       </div>
-      <div id="signup-form-slot">
+      <div id="signup-form-slot" class="reveal">
         <h3>טופס ההרשמה יעלה כאן בקרוב</h3>
         <p>בינתיים אפשר לחזור לדף הזה מדי פעם, או לפנות אלינו ישירות בערוצים המוכרים של חותם.</p>
       </div>
@@ -347,9 +357,24 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
 
 <script>
 const obs = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+  entries.forEach(e=>{
+    if(!e.isIntersecting) return;
+    const el = e.target;
+    el.classList.add('in');
+    obs.unobserve(el);
+    el.addEventListener('transitionend', ()=>{
+      el.classList.remove('reveal','in');
+      el.style.transitionDelay = '';
+    }, {once:true});
+  });
 },{threshold:.15});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelectorAll('.reveal').forEach(el=>{
+  const peers = el.parentElement ? [...el.parentElement.children].filter(c=>c.classList.contains('reveal')) : [el];
+  if(peers.length > 1){
+    el.style.transitionDelay = Math.min(peers.indexOf(el)*70, 420) + 'ms';
+  }
+  obs.observe(el);
+});
 </script>
 
 </body>
