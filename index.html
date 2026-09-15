@@ -127,9 +127,11 @@ h2{font-size:clamp(28px,3.4vw,44px);font-weight:800;line-height:1.15;margin-bott
 }
 .topic-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
 .topic-icon{
-  width:48px;height:48px;border-radius:12px;background:var(--bg-soft);
-  display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+  width:96px;height:96px;position:relative;margin-bottom:14px;
 }
+.topic-icon img{width:100%;height:100%}
+.topic-anim{position:absolute;inset:0}
+.topic-icon:has(.topic-anim[data-loaded="true"]) img{visibility:hidden}
 .topic-card h3{font-size:19px;font-weight:700;margin-bottom:8px}
 .topic-card p{font-size:15px;color:var(--ink-mute)}
 .topics-more{margin-top:28px;font-size:16px;color:var(--ink-mute)}
@@ -273,32 +275,32 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
     <p class="section-lede reveal">כל מפגש מחבר מושג תאורטי אחד לתרגול חי בקבוצה.</p>
     <div class="topics-grid">
       <div class="topic-card reveal">
-        <div class="topic-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0048FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h4v-6h4v-4h4V6h4"/></svg></div>
+        <div class="topic-icon"><img src="assets/hotam-icons/svg/01-group-stages.svg" alt="" width="96" height="96"><div class="topic-anim" data-icon="assets/hotam-icons/lottie/01-group-stages.json" aria-hidden="true"></div></div>
         <h3>שלבים בבניית קבוצה</h3>
         <p>מהיכרות וגיבוש, דרך סערה ונורמות עבודה, ועד פרידה: מה נדרש מהמנחה בכל שלב.</p>
       </div>
       <div class="topic-card reveal">
-        <div class="topic-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0048FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="topic-icon"><img src="assets/hotam-icons/svg/02-group-strength.svg" alt="" width="96" height="96"><div class="topic-anim" data-icon="assets/hotam-icons/lottie/02-group-strength.json" aria-hidden="true"></div></div>
         <h3>כוחה של קבוצה</h3>
         <p>הקבוצה כמערכת תמיכה, כמרחב למידה וכמשאב לחוסן מקצועי.</p>
       </div>
       <div class="topic-card reveal">
-        <div class="topic-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0048FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
+        <div class="topic-icon"><img src="assets/hotam-icons/svg/03-facilitation.svg" alt="" width="96" height="96"><div class="topic-anim" data-icon="assets/hotam-icons/lottie/03-facilitation.json" aria-hidden="true"></div></div>
         <h3>בין הנחיה להוראה</h3>
         <p>המעבר מעמדת ״כל יודע״ לעמדה שמחזיקה תהליך: צמצום המקום ואמון בקבוצה.</p>
       </div>
       <div class="topic-card reveal">
-        <div class="topic-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0048FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div class="topic-icon"><img src="assets/hotam-icons/svg/04-here-and-now.svg" alt="" width="96" height="96"><div class="topic-anim" data-icon="assets/hotam-icons/lottie/04-here-and-now.json" aria-hidden="true"></div></div>
         <h3>כאן ועכשיו בקבוצה</h3>
         <p>קריאת מה שקורה בחדר ברגע הזה, והעלאת הסמוי אל הגלוי בצורה בטוחה ומקדמת.</p>
       </div>
       <div class="topic-card reveal">
-        <div class="topic-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0048FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6" r="3"/><rect x="4" y="15" width="6" height="6" rx="1"/><path d="M17 15l3 6h-6l3-6z"/></svg></div>
+        <div class="topic-icon"><img src="assets/hotam-icons/svg/05-group-roles.svg" alt="" width="96" height="96"><div class="topic-anim" data-icon="assets/hotam-icons/lottie/05-group-roles.json" aria-hidden="true"></div></div>
         <h3>תפקידים בקבוצה</h3>
         <p>המוביל, הציניקן, המושתק: התפקיד כצורך של המערכת כולה, וכלים לחילוץ ממנו.</p>
       </div>
       <div class="topic-card reveal">
-        <div class="topic-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0048FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="topic-icon"><img src="assets/hotam-icons/svg/06-resistance.svg" alt="" width="96" height="96"><div class="topic-anim" data-icon="assets/hotam-icons/lottie/06-resistance.json" aria-hidden="true"></div></div>
         <h3>התנגדויות בקבוצה</h3>
         <p>שתיקה, איחורים, ציניות: על מה ההתנגדות מגינה, ואיך הופכים אותה לשיח מעמיק.</p>
       </div>
@@ -401,6 +403,28 @@ document.querySelectorAll('.reveal').forEach(el=>{
   addEventListener('resize', schedule);
   reduced.addEventListener('change', schedule);
   new ResizeObserver(schedule).observe(container);
+})();
+
+/* אייקוני הנושאים: לולאה עדינה שמתנגנת רק כשהכרטיס על המסך */
+(function(){
+  if(!window.lottie) return;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  document.querySelectorAll('.topic-anim').forEach(container=>{
+    let ready = false, visible = false;
+    const anim = lottie.loadAnimation({container, renderer:'svg', loop:true, autoplay:false,
+      path: container.dataset.icon,
+      rendererSettings:{preserveAspectRatio:'xMidYMid meet'}});
+    function sync(){
+      if(!ready) return;
+      if(reduced.matches) anim.goToAndStop(0, true);
+      else if(visible && !document.hidden) anim.play();
+      else anim.pause();
+    }
+    anim.addEventListener('DOMLoaded', ()=>{ ready = true; container.dataset.loaded = 'true'; sync(); });
+    new IntersectionObserver(entries=>{ visible = entries[0].isIntersecting; sync(); }, {threshold:0}).observe(container);
+    reduced.addEventListener('change', sync);
+    document.addEventListener('visibilitychange', sync);
+  });
 })();
 </script>
 
