@@ -91,7 +91,10 @@ h1{
 }
 .fact svg{flex:none}
 .hero-cta{display:flex;flex-wrap:wrap;gap:14px}
-.hero-figure{position:relative}
+.hero-figure{position:relative;aspect-ratio:3/2;background:var(--white);isolation:isolate}
+.hero-figure img{width:100%;height:100%;object-fit:contain}
+.hero-anim{position:absolute;inset:0}
+.hero-figure:has(.hero-anim[data-loaded="true"]) img{visibility:hidden}
 
 /* sections */
 section{padding:88px 0}
@@ -240,6 +243,7 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
     </div>
     <figure class="hero-figure">
       <img src="assets/group-circle-color.jpg" alt="איור קו כחול: קבוצת אנשים יושבת במעגל ומשוחחת, על רקע עיגולי צבע בגוני המותג" width="1536" height="1024" fetchpriority="high">
+      <div class="hero-anim" aria-hidden="true"></div>
     </figure>
   </div>
 </section>
@@ -370,6 +374,34 @@ document.querySelectorAll('.reveal').forEach(el=>{
   }
   obs.observe(el);
 });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/lottie-web@5.12.2/build/player/lottie.min.js"></script>
+<script>
+/* אנימציית הגלילה של איור ההירו: כתמי הצבע נעים בקצב הגלילה */
+(function(){
+  if(!window.lottie) return;
+  const container = document.querySelector('.hero-anim');
+  if(!container) return;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  let ready = false, pending = 0;
+  const anim = lottie.loadAnimation({container, renderer:'svg', loop:false, autoplay:false,
+    path:'assets/group-scroll.json',
+    rendererSettings:{preserveAspectRatio:'xMidYMid meet'}});
+  function render(){
+    pending = 0;
+    if(!ready) return;
+    const rect = container.getBoundingClientRect();
+    const progress = reduced.matches ? .5 : Math.max(0, Math.min(1, (innerHeight - rect.top) / (innerHeight + rect.height)));
+    anim.goToAndStop(progress * (anim.totalFrames - 1), true);
+  }
+  function schedule(){ if(!pending) pending = requestAnimationFrame(render); }
+  anim.addEventListener('DOMLoaded', ()=>{ ready = true; container.dataset.loaded = 'true'; schedule(); });
+  addEventListener('scroll', schedule, {passive:true});
+  addEventListener('resize', schedule);
+  reduced.addEventListener('change', schedule);
+  new ResizeObserver(schedule).observe(container);
+})();
 </script>
 
 </body>
