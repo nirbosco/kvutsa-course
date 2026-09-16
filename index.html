@@ -168,18 +168,51 @@ h2{font-size:clamp(28px,3.4vw,44px);font-weight:800;line-height:1.15;margin-bott
 .schedule-note{margin-top:26px;font-size:16px;color:var(--ink-mute);display:flex;align-items:center;gap:10px}
 
 /* signup */
-.signup{background:var(--blue);color:var(--white);padding:96px 0 80px}
+.signup{background:var(--blue);color:var(--white);padding:96px 0 88px}
 .signup .kicker{color:var(--sky)}
 .signup h2{color:var(--white)}
 .signup .section-lede{color:rgba(254,254,254,.85)}
-.signup-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:8px}
-#signup-form-slot{
-  background:var(--white);border-radius:24px;padding:44px 36px;color:var(--ink);
-  box-shadow:var(--shadow-md);text-align:center;min-height:280px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+.signup-head{max-width:760px;margin:0 auto 40px;text-align:center}
+.signup-head .section-lede{margin:0 auto}
+.signup-form{
+  background:var(--white);border-radius:24px;padding:40px 36px;color:var(--ink);
+  box-shadow:var(--shadow-md);max-width:760px;margin:0 auto;
 }
-#signup-form-slot h3{font-size:22px;font-weight:800;color:var(--blue)}
-#signup-form-slot p{font-size:16px;color:var(--ink-mute);max-width:26em}
+.field{margin-bottom:22px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.field label,.field legend{display:block;font-size:15px;font-weight:700;margin-bottom:7px}
+.field .hint{font-size:14px;font-weight:400;color:var(--ink-mute);margin-bottom:9px}
+.field .optional{font-weight:400;color:var(--ink-mute)}
+.field input,.field select,.field textarea{
+  width:100%;font-family:inherit;font-size:16px;color:var(--ink);
+  background:var(--white);border:1px solid var(--line);border-radius:10px;
+  padding:11px 14px;transition:border-color .2s var(--ease),box-shadow .2s var(--ease);
+}
+.field textarea{min-height:104px;resize:vertical;line-height:1.6}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,72,255,.14);
+}
+.field input[aria-invalid="true"],.field textarea[aria-invalid="true"],.field select[aria-invalid="true"]{border-color:#c62828}
+.field fieldset{border:0}
+.choice-row{display:flex;flex-wrap:wrap;gap:10px}
+.choice{
+  display:inline-flex;align-items:center;gap:9px;cursor:pointer;
+  border:1px solid var(--line);border-radius:999px;padding:9px 18px;
+  font-size:15px;transition:border-color .2s var(--ease),background .2s var(--ease);
+}
+.choice:hover{background:var(--bg-soft)}
+.choice input{width:auto;margin:0;accent-color:var(--blue)}
+.choice:has(input:checked){border-color:var(--blue);background:var(--bg-soft);font-weight:700}
+.choice:has(input:focus-visible){outline:2px solid var(--blue);outline-offset:2px}
+.error{display:block;font-size:14px;color:#c62828;margin-top:6px;min-height:0}
+.signup-form .btn{border:0;width:100%;margin-top:6px;font-size:17px;padding:14px 28px}
+.signup-form .btn[disabled]{opacity:.6;cursor:progress}
+.form-note{font-size:14px;color:var(--ink-mute);margin-top:14px;text-align:center}
+.form-status{margin-top:16px;font-size:16px;font-weight:700;text-align:center}
+.form-status.err{color:#c62828}
+.form-done{text-align:center;padding:20px 0}
+.form-done h3{font-size:24px;font-weight:800;color:var(--blue);margin-bottom:10px}
+.form-done p{font-size:17px;color:var(--ink-mute);max-width:32em;margin:0 auto}
 
 /* footer */
 footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding:36px 0}
@@ -211,7 +244,7 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
   .hero-grid{grid-template-columns:1fr;gap:40px}
   .hero-figure{order:2}
   .audience-grid{grid-template-columns:1fr}
-  .signup-grid{grid-template-columns:1fr}
+  .field-row{grid-template-columns:1fr}
   section{padding:64px 0}
 }
 @media (max-width:520px){
@@ -484,17 +517,80 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
 
 <section class="signup" id="signup">
   <div class="container">
-    <div class="signup-grid">
-      <div>
-        <span class="kicker reveal">הרשמה</span>
-        <h2 class="reveal">רוצים להצטרף?</h2>
-        <p class="section-lede reveal">מספר המקומות מוגבל, כדי שהקבוצה תוכל להיות קבוצה. שמרו את התאריכים ביומן, וההרשמה כבר בדרך.</p>
-      </div>
-      <div id="signup-form-slot" class="reveal">
-        <h3>טופס ההרשמה יעלה כאן בקרוב</h3>
-        <p>בינתיים אפשר לחזור לדף הזה מדי פעם, או לפנות אלינו ישירות בערוצים המוכרים של חותם.</p>
-      </div>
+    <div class="signup-head">
+      <span class="kicker reveal">הרשמה</span>
+      <h2 class="reveal">רוצים להצטרף?</h2>
+      <p class="section-lede reveal">מספר המקומות מוגבל, כדי שהקבוצה תוכל להיות קבוצה. מלאו את הטופס ונחזור אליכם.</p>
     </div>
+
+    <form class="signup-form reveal" id="signup-form" novalidate>
+      <div class="field-row">
+        <div class="field">
+          <label for="f-name">שם מלא</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+          <span class="error" data-for="f-name"></span>
+        </div>
+        <div class="field">
+          <label for="f-email">אימייל</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
+          <span class="error" data-for="f-email"></span>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="f-phone">טלפון <span class="optional">(רשות)</span></label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+          <span class="error" data-for="f-phone"></span>
+        </div>
+        <div class="field">
+          <label for="f-experience">שנות ניסיון בהנחיית קבוצות</label>
+          <select id="f-experience" name="experience" required>
+            <option value="">בחרו מהרשימה</option>
+            <option value="פחות משנה">פחות משנה</option>
+            <option value="שנה עד שלוש">שנה עד שלוש</option>
+            <option value="שלוש עד חמש">שלוש עד חמש</option>
+            <option value="חמש עד עשר">חמש עד עשר</option>
+            <option value="יותר מעשר">יותר מעשר</option>
+          </select>
+          <span class="error" data-for="f-experience"></span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-program">התוכנית או הקבוצה שאני מנחה</label>
+        <input id="f-program" name="program" type="text" required>
+        <span class="error" data-for="f-program"></span>
+      </div>
+
+      <div class="field">
+        <label for="f-hopes">מה הייתי רוצה לקבל או לחוות בסדנה?</label>
+        <textarea id="f-hopes" name="hopes" rows="4" required></textarea>
+        <span class="error" data-for="f-hopes"></span>
+      </div>
+
+      <div class="field">
+        <fieldset>
+          <legend>האם אוכל להתחייב לשמונה מפגשים פיזיים?</legend>
+          <p class="hint">הנוכחות והקביעות חשובות מאוד ליצירת קבוצה עובדת.</p>
+          <div class="choice-row">
+            <label class="choice"><input type="radio" name="commitment" value="כן" required> כן</label>
+            <label class="choice"><input type="radio" name="commitment" value="ברוב המפגשים"> ברוב המפגשים</label>
+            <label class="choice"><input type="radio" name="commitment" value="עדיין לא בטוח/ה"> עדיין לא בטוח/ה</label>
+          </div>
+          <span class="error" data-for="commitment"></span>
+        </fieldset>
+      </div>
+
+      <div class="field">
+        <label for="f-notes">בקשות מיוחדות <span class="optional">(רשות)</span></label>
+        <textarea id="f-notes" name="notes" rows="3"></textarea>
+      </div>
+
+      <button class="btn btn-primary" type="submit">שליחת ההרשמה</button>
+      <p class="form-note">הפרטים נשמרים אצלנו לצורך ההרשמה לקורס בלבד.</p>
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
   </div>
 </section>
 
@@ -587,6 +683,116 @@ document.querySelectorAll('.reveal').forEach(el=>{
       btn.setAttribute('aria-expanded', String(open));
       label.textContent = open ? 'סגירה' : 'קרא עוד';
     });
+  });
+})();
+</script>
+
+<script>
+/* טופס ההרשמה */
+(function(){
+  const SUPABASE_URL = 'https://ndrhiikczkbosentclnh.supabase.co';
+  const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5kcmhpaWtjemtib3NlbnRjbG5oIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzMzYwMzcsImV4cCI6MjA5NTkxMjAzN30.KpSEtEHI-i2TQDfuCf8l4Dg1wQ-Ya-UdLEQ6VN3KxEQ';
+  const TABLE = 'kvutsa_registrations';
+
+  const form = document.getElementById('signup-form');
+  if(!form) return;
+  const status = form.querySelector('.form-status');
+  const submit = form.querySelector('button[type="submit"]');
+
+  const MESSAGES = {
+    name: 'נשמח לדעת איך קוראים לכם.',
+    email: 'צריך אימייל תקין כדי לחזור אליכם.',
+    program: 'ספרו לנו איזו תוכנית או קבוצה אתם מנחים.',
+    experience: 'בחרו כמה שנות ניסיון יש לכם.',
+    hopes: 'כתבו לנו מה הייתם רוצים לקבל בסדנה.',
+    commitment: 'בחרו אחת מהאפשרויות.'
+  };
+
+  function setError(key, message){
+    const holder = form.querySelector('.error[data-for="' + key + '"]');
+    if(holder) holder.textContent = message || '';
+    const field = form.querySelector('#' + key) || form.querySelector('[name="' + key + '"]');
+    if(field && field.type !== 'radio') field.setAttribute('aria-invalid', message ? 'true' : 'false');
+  }
+
+  function validate(){
+    const data = new FormData(form);
+    const problems = [];
+    [['f-name','name'],['f-program','program'],['f-experience','experience'],['f-hopes','hopes']].forEach(([id,key])=>{
+      const value = (data.get(key) || '').toString().trim();
+      const bad = !value;
+      setError(id, bad ? MESSAGES[key] : '');
+      if(bad) problems.push(id);
+    });
+    const email = (data.get('email') || '').toString().trim();
+    const emailBad = !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    setError('f-email', emailBad ? MESSAGES.email : '');
+    if(emailBad) problems.push('f-email');
+
+    const commitmentBad = !data.get('commitment');
+    setError('commitment', commitmentBad ? MESSAGES.commitment : '');
+    if(commitmentBad) problems.push('commitment');
+
+    return problems;
+  }
+
+  form.addEventListener('submit', async (event)=>{
+    event.preventDefault();
+    status.textContent = '';
+    status.classList.remove('err');
+
+    const problems = validate();
+    if(problems.length){
+      const first = form.querySelector('#' + problems[0]) || form.querySelector('[name="' + problems[0] + '"]');
+      if(first){ first.focus({preventScroll:true}); first.scrollIntoView({block:'center', behavior:'smooth'}); }
+      status.textContent = 'חסרים עוד כמה פרטים.';
+      status.classList.add('err');
+      return;
+    }
+
+    const data = new FormData(form);
+    const payload = {
+      full_name: (data.get('name')||'').toString().trim(),
+      email: (data.get('email')||'').toString().trim(),
+      phone: (data.get('phone')||'').toString().trim(),
+      program: (data.get('program')||'').toString().trim(),
+      experience: (data.get('experience')||'').toString(),
+      hopes: (data.get('hopes')||'').toString().trim(),
+      commitment: (data.get('commitment')||'').toString(),
+      notes: (data.get('notes')||'').toString().trim()
+    };
+
+    submit.disabled = true;
+    const original = submit.textContent;
+    submit.textContent = 'שולחים...';
+
+    try{
+      const res = await fetch(SUPABASE_URL + '/rest/v1/' + TABLE, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON,
+          'Authorization': 'Bearer ' + SUPABASE_ANON,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify(payload)
+      });
+      if(!res.ok) throw new Error('status ' + res.status);
+      form.innerHTML = '<div class="form-done"><h3>קיבלנו, תודה</h3>' +
+        '<p>ההרשמה נקלטה אצלנו. נחזור אליכם עם הפרטים המלאים לקראת המפגש הראשון.</p></div>';
+      form.scrollIntoView({block:'center', behavior:'smooth'});
+    }catch(err){
+      submit.disabled = false;
+      submit.textContent = original;
+      status.textContent = 'משהו נתקע בשליחה. נסו שוב בעוד רגע.';
+      status.classList.add('err');
+    }
+  });
+
+  form.addEventListener('input', (event)=>{
+    const el = event.target;
+    if(el.name === 'commitment') setError('commitment','');
+    else if(el.id) setError(el.id, '');
   });
 })();
 </script>
