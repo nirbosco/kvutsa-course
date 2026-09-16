@@ -118,6 +118,24 @@ h2{font-size:clamp(28px,3.4vw,44px);font-weight:800;line-height:1.15;margin-bott
 .audience-card p{font-size:21px;font-weight:700;line-height:1.5}
 .audience-card span{font-size:15px;font-weight:400;opacity:.85}
 
+/* facilitator */
+.facilitator-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;margin-top:12px}
+.facilitator-text{font-size:17px;color:var(--ink-mute);margin-top:6px}
+.facilitator-text + .facilitator-text{margin-top:14px}
+.credentials{
+  list-style:none;background:var(--white);border:1px solid var(--line);
+  border-radius:24px;padding:32px 34px;box-shadow:var(--shadow-sm);
+}
+.credentials li{
+  position:relative;padding-inline-start:26px;font-size:16px;font-weight:500;color:var(--ink);
+}
+.credentials li + li{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.credentials li::before{
+  content:"";position:absolute;inset-inline-start:0;top:.62em;
+  width:9px;height:9px;border-radius:999px;background:var(--blue);
+}
+.credentials li + li::before{top:calc(.62em + 14px)}
+
 /* program (meetings) */
 .meetings{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:44px;align-items:start}
 .meeting{
@@ -159,7 +177,7 @@ h2{font-size:clamp(28px,3.4vw,44px);font-weight:800;line-height:1.15;margin-bott
 .date-pills{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
 .date-pill{
   display:inline-flex;align-items:baseline;gap:8px;
-  background:var(--white);border:1px solid var(--line);border-radius:999px;
+  background:var(--bg-soft);border:1px solid var(--line);border-radius:999px;
   padding:10px 22px;font-size:20px;font-weight:800;color:var(--blue);
   box-shadow:var(--shadow-sm);
 }
@@ -244,6 +262,7 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
   .hero-grid{grid-template-columns:1fr;gap:40px}
   .hero-figure{order:2}
   .audience-grid{grid-template-columns:1fr}
+  .facilitator-grid{grid-template-columns:1fr}
   .field-row{grid-template-columns:1fr}
   section{padding:64px 0}
 }
@@ -315,35 +334,54 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
   </div>
 </section>
 
+<section class="section-soft" id="facilitator">
+  <div class="container">
+    <div class="facilitator-grid">
+      <div>
+        <span class="kicker reveal">מי מנחה</span>
+        <h2 class="reveal">דרורית וייס</h2>
+        <p class="facilitator-text reveal">דרורית ניהלה בית ספר, מנחה קבוצות שנים רבות, והיום מנחה את קבוצת גשר בתוכנית אופק לניהול. במקביל היא לומדת ביבליותרפיה.</p>
+        <p class="facilitator-text reveal">הניסיון הזה, משני צדי החדר, הוא שמאפשר לקורס להישען על עבודה יומיומית עם קבוצות ולא רק על תיאוריה.</p>
+      </div>
+      <ul class="credentials reveal">
+        <li>מנהלת בית ספר לשעבר</li>
+        <li>מנחת קבוצות ותיקה</li>
+        <li>סטודנטית לביבליותרפיה</li>
+        <li>מנחה של קבוצת גשר באופק לניהול</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <section id="topics">
   <div class="container">
     <span class="kicker reveal">מה לומדים</span>
-    <h2 class="reveal">התוכנית: שנים־עשר מפגשים</h2>
-    <p class="section-lede reveal">כל מפגש מחבר מושג אחד לתרגול חי בקבוצה. לחצו על ״קרא עוד״ לפירוט המלא.</p>
+    <h2 class="reveal">התוכנית: שנים־עשר נושאים</h2>
+    <p class="section-lede reveal">אלה התכנים שנפגוש לאורך הקורס, לא חלוקה למפגשים. לחצו על ״קרא עוד״ לפירוט המלא.</p>
     <div class="meetings">
       <article class="meeting reveal" id="meeting-1">
         <div class="meeting-icon">
           <img src="assets/session-icons/svg/01-why-a-group.svg" alt="" width="88" height="88" loading="lazy">
           <div class="meeting-anim" data-icon="assets/session-icons/lottie/01-why-a-group.json" aria-hidden="true"></div>
         </div>
-        <span class="meeting-num">מפגש 1</span>
+        <span class="meeting-num">נושא 1</span>
         <h3 id="m1-title">למה קבוצה?</h3>
         <p class="meeting-teaser">הקבוצה כמערכת תמיכה, כמרחב למידה וכמשאב לחוסן מקצועי.</p>
-        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m1-body" aria-label="קרא עוד על מפגש 1: למה קבוצה?">
+        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m1-body" aria-label="קרא עוד על נושא 1: למה קבוצה?">
           <span class="meeting-toggle-label">קרא עוד</span>
           <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="meeting-body" id="m1-body" role="region" aria-labelledby="m1-title"><div><p>המפגש הראשון פותח את השאלה למה בכלל להיפגש בקבוצה. נדבר על הקבוצה כמערכת תמיכה, כמרחב למידה וכמשאב לחוסן מקצועי, ונתחיל לבנות את קבוצת הלומדות והלומדים שלנו.</p></div></div>
+        <div class="meeting-body" id="m1-body" role="region" aria-labelledby="m1-title"><div><p>הנושא הראשון פותח את השאלה למה בכלל להיפגש בקבוצה. נדבר על הקבוצה כמערכת תמיכה, כמרחב למידה וכמשאב לחוסן מקצועי, ונתחיל לבנות את קבוצת הלומדות והלומדים שלנו.</p></div></div>
       </article>
       <article class="meeting reveal" id="meeting-2">
         <div class="meeting-icon">
           <img src="assets/session-icons/svg/02-content-and-process.svg" alt="" width="88" height="88" loading="lazy">
           <div class="meeting-anim" data-icon="assets/session-icons/lottie/02-content-and-process.json" aria-hidden="true"></div>
         </div>
-        <span class="meeting-num">מפגש 2</span>
+        <span class="meeting-num">נושא 2</span>
         <h3 id="m2-title">תוכן ותהליך בקבוצה</h3>
         <p class="meeting-teaser">ההבחנה בין ה״מה״ שנאמר בחדר לבין ה״איך״ שמתרחש בו.</p>
-        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m2-body" aria-label="קרא עוד על מפגש 2: תוכן ותהליך בקבוצה">
+        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m2-body" aria-label="קרא עוד על נושא 2: תוכן ותהליך בקבוצה">
           <span class="meeting-toggle-label">קרא עוד</span>
           <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
@@ -354,10 +392,10 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
           <img src="assets/session-icons/svg/03-setting-and-contract.svg" alt="" width="88" height="88" loading="lazy">
           <div class="meeting-anim" data-icon="assets/session-icons/lottie/03-setting-and-contract.json" aria-hidden="true"></div>
         </div>
-        <span class="meeting-num">מפגש 3</span>
+        <span class="meeting-num">נושא 3</span>
         <h3 id="m3-title">סטינג וחוזה קבוצתי</h3>
         <p class="meeting-teaser">יצירת מרחב מוגן ובטוח, לפני שמתחילים לעבוד.</p>
-        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m3-body" aria-label="קרא עוד על מפגש 3: סטינג וחוזה קבוצתי">
+        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m3-body" aria-label="קרא עוד על נושא 3: סטינג וחוזה קבוצתי">
           <span class="meeting-toggle-label">קרא עוד</span>
           <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
@@ -368,10 +406,10 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
           <img src="assets/session-icons/svg/04-group-stages.svg" alt="" width="88" height="88" loading="lazy">
           <div class="meeting-anim" data-icon="assets/session-icons/lottie/04-group-stages.json" aria-hidden="true"></div>
         </div>
-        <span class="meeting-num">מפגש 4</span>
+        <span class="meeting-num">נושא 4</span>
         <h3 id="m4-title">שלבים בבניית קבוצה</h3>
         <p class="meeting-teaser">חמישה שלבי התפתחות, ומה נדרש מהמנחה בכל אחד מהם.</p>
-        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m4-body" aria-label="קרא עוד על מפגש 4: שלבים בבניית קבוצה">
+        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m4-body" aria-label="קרא עוד על נושא 4: שלבים בבניית קבוצה">
           <span class="meeting-toggle-label">קרא עוד</span>
           <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
@@ -382,10 +420,10 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
           <img src="assets/session-icons/svg/05-teacher-to-facilitator.svg" alt="" width="88" height="88" loading="lazy">
           <div class="meeting-anim" data-icon="assets/session-icons/lottie/05-teacher-to-facilitator.json" aria-hidden="true"></div>
         </div>
-        <span class="meeting-num">מפגש 5</span>
+        <span class="meeting-num">נושא 5</span>
         <h3 id="m5-title">בין מורה למנחה</h3>
         <p class="meeting-teaser">המעבר מעמדת ״כל יודע״ לעמדה שמחזיקה תהליך.</p>
-        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m5-body" aria-label="קרא עוד על מפגש 5: בין מורה למנחה">
+        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m5-body" aria-label="קרא עוד על נושא 5: בין מורה למנחה">
           <span class="meeting-toggle-label">קרא עוד</span>
           <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
@@ -396,10 +434,10 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
           <img src="assets/session-icons/svg/06-visible-and-hidden.svg" alt="" width="88" height="88" loading="lazy">
           <div class="meeting-anim" data-icon="assets/session-icons/lottie/06-visible-and-hidden.json" aria-hidden="true"></div>
         </div>
-        <span class="meeting-num">מפגש 6</span>
+        <span class="meeting-num">נושא 6</span>
         <h3 id="m6-title">מן הגלוי לסמוי</h3>
         <p class="meeting-teaser">קריאת הטקסט והסאבטקסט הקבוצתי.</p>
-        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m6-body" aria-label="קרא עוד על מפגש 6: מן הגלוי לסמוי">
+        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m6-body" aria-label="קרא עוד על נושא 6: מן הגלוי לסמוי">
           <span class="meeting-toggle-label">קרא עוד</span>
           <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
@@ -410,10 +448,10 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
           <img src="assets/session-icons/svg/07-hall-of-mirrors.svg" alt="" width="88" height="88" loading="lazy">
           <div class="meeting-anim" data-icon="assets/session-icons/lottie/07-hall-of-mirrors.json" aria-hidden="true"></div>
         </div>
-        <span class="meeting-num">מפגש 7</span>
+        <span class="meeting-num">נושא 7</span>
         <h3 id="m7-title">היכל המראות</h3>
         <p class="meeting-teaser">שיקופים והדהודים הדדיים בין המשתתפים.</p>
-        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m7-body" aria-label="קרא עוד על מפגש 7: היכל המראות">
+        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m7-body" aria-label="קרא עוד על נושא 7: היכל המראות">
           <span class="meeting-toggle-label">קרא עוד</span>
           <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
@@ -424,10 +462,10 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
           <img src="assets/session-icons/svg/08-group-roles.svg" alt="" width="88" height="88" loading="lazy">
           <div class="meeting-anim" data-icon="assets/session-icons/lottie/08-group-roles.json" aria-hidden="true"></div>
         </div>
-        <span class="meeting-num">מפגש 8</span>
+        <span class="meeting-num">נושא 8</span>
         <h3 id="m8-title">תפקידים בקבוצה</h3>
         <p class="meeting-teaser">תפקידים גלויים וסמויים, וכיצד הם משרתים את הקבוצה כולה.</p>
-        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m8-body" aria-label="קרא עוד על מפגש 8: תפקידים בקבוצה">
+        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m8-body" aria-label="קרא עוד על נושא 8: תפקידים בקבוצה">
           <span class="meeting-toggle-label">קרא עוד</span>
           <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
@@ -438,10 +476,10 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
           <img src="assets/session-icons/svg/09-group-conflicts.svg" alt="" width="88" height="88" loading="lazy">
           <div class="meeting-anim" data-icon="assets/session-icons/lottie/09-group-conflicts.json" aria-hidden="true"></div>
         </div>
-        <span class="meeting-num">מפגש 9</span>
+        <span class="meeting-num">נושא 9</span>
         <h3 id="m9-title">קונפליקטים בקבוצה</h3>
         <p class="meeting-teaser">מהימנעות מקונפליקט לניהול שלו.</p>
-        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m9-body" aria-label="קרא עוד על מפגש 9: קונפליקטים בקבוצה">
+        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m9-body" aria-label="קרא עוד על נושא 9: קונפליקטים בקבוצה">
           <span class="meeting-toggle-label">קרא עוד</span>
           <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
@@ -452,10 +490,10 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
           <img src="assets/session-icons/svg/10-group-resistance.svg" alt="" width="88" height="88" loading="lazy">
           <div class="meeting-anim" data-icon="assets/session-icons/lottie/10-group-resistance.json" aria-hidden="true"></div>
         </div>
-        <span class="meeting-num">מפגש 10</span>
+        <span class="meeting-num">נושא 10</span>
         <h3 id="m10-title">התנגדויות בקבוצה</h3>
         <p class="meeting-teaser">שתיקה, איחורים וציניות: על מה הן מגינות.</p>
-        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m10-body" aria-label="קרא עוד על מפגש 10: התנגדויות בקבוצה">
+        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m10-body" aria-label="קרא עוד על נושא 10: התנגדויות בקבוצה">
           <span class="meeting-toggle-label">קרא עוד</span>
           <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
@@ -466,10 +504,10 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
           <img src="assets/session-icons/svg/11-co-facilitation.svg" alt="" width="88" height="88" loading="lazy">
           <div class="meeting-anim" data-icon="assets/session-icons/lottie/11-co-facilitation.json" aria-hidden="true"></div>
         </div>
-        <span class="meeting-num">מפגש 11</span>
+        <span class="meeting-num">נושא 11</span>
         <h3 id="m11-title">הנחיה בקו</h3>
         <p class="meeting-teaser">יתרונות ואתגרים בהנחיה זוגית.</p>
-        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m11-body" aria-label="קרא עוד על מפגש 11: הנחיה בקו">
+        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m11-body" aria-label="קרא עוד על נושא 11: הנחיה בקו">
           <span class="meeting-toggle-label">קרא עוד</span>
           <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
@@ -480,10 +518,10 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
           <img src="assets/session-icons/svg/12-group-closure.svg" alt="" width="88" height="88" loading="lazy">
           <div class="meeting-anim" data-icon="assets/session-icons/lottie/12-group-closure.json" aria-hidden="true"></div>
         </div>
-        <span class="meeting-num">מפגש 12</span>
+        <span class="meeting-num">נושא 12</span>
         <h3 id="m12-title">תהליכי פרידה בקבוצה</h3>
         <p class="meeting-teaser">עיבוד הפרידה כחלק בלתי נפרד מהתהליך.</p>
-        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m12-body" aria-label="קרא עוד על מפגש 12: תהליכי פרידה בקבוצה">
+        <button class="meeting-toggle" type="button" aria-expanded="false" aria-controls="m12-body" aria-label="קרא עוד על נושא 12: תהליכי פרידה בקבוצה">
           <span class="meeting-toggle-label">קרא עוד</span>
           <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
@@ -493,7 +531,7 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
   </div>
 </section>
 
-<section class="section-soft" id="schedule">
+<section id="schedule">
   <div class="container">
     <span class="kicker reveal">מתי נפגשים</span>
     <h2 class="reveal">מפגשי בוקר לאורך השנה</h2>
