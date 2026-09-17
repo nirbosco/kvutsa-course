@@ -72,7 +72,15 @@ header{
 /* hero */
 .hero{padding:72px 0 88px;overflow:hidden}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-.eyebrow{font-size:14px;font-weight:700;color:var(--ink-mute);letter-spacing:.02em;margin-bottom:10px}
+.program-mark{
+  display:inline-flex;align-items:center;gap:9px;margin-bottom:16px;
+  font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--ink-mute);
+}
+.program-mark::before{
+  content:"";width:4px;height:19px;border-radius:999px;background:var(--gradient);flex:none;
+}
+.program-mark .sep{color:var(--line);font-weight:500;letter-spacing:0}
+.program-mark strong{color:var(--blue);font-weight:800;letter-spacing:.14em}
 .badge{
   display:inline-flex;align-items:center;gap:8px;
   border:1px solid var(--blue);color:var(--blue);
@@ -166,7 +174,8 @@ h2{font-size:clamp(28px,3.4vw,44px);font-weight:800;line-height:1.15;margin-bott
 }
 .date-pill em{font-style:normal;font-size:13px;font-weight:500;color:var(--ink-mute)}
 .date-pill.is-special{border-color:var(--sky)}
-.schedule-note{margin-top:26px;font-size:16px;color:var(--ink-mute);display:flex;align-items:center;gap:10px}
+.schedule-note{margin-top:22px;font-size:16px;color:var(--ink-mute);display:flex;align-items:flex-start;gap:10px;max-width:62em}
+.schedule-note svg{flex:none;margin-top:.35em}
 
 /* signup */
 .signup{background:var(--blue);color:var(--white);padding:96px 0 88px}
@@ -273,7 +282,7 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
 <section class="hero">
   <div class="container hero-grid">
     <div>
-      <p class="eyebrow">פיתוח מקצועי · חותם</p>
+      <p class="program-mark">פיתוח מקצועי<span class="sep">·</span><strong>חותם</strong></p>
       <span class="badge">הנחיית קבוצות · תשפ״ז</span>
       <h1>איך בונים קבוצה?</h1>
       <p class="lede">מפגש לימוד חווייתי בקבוצה, על הקבוצה ועל התהליכים שמתרחשים בה. נתרגל כלים, נלמד מושגים בהנחיית קבוצות, ונתבונן יחד במה שקורה בחדר בזמן אמת.</p>
@@ -509,7 +518,11 @@ footer{background:var(--blue);border-top:1px solid rgba(254,254,254,.22);padding
     </div>
     <p class="schedule-note reveal">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0048FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      ההשתתפות היא בכל המפגשים: הקבוצה נבנית יחד, מהמפגש הראשון ועד האחרון.
+      הנוכחות הקבועה חשובה מאוד ליצירת קבוצה עובדת, ולכן ההרשמה היא התחייבות לשמונת המפגשים.
+    </p>
+    <p class="schedule-note reveal">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0048FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+      בין המפגשים הפיזיים ייערכו גם מפגשי זום שבהם נערוך היוועצויות פרטניות וקבוצתיות סביב סוגיות העולות בתוך הקבוצות של המשתתפים.
     </p>
   </div>
 </section>
